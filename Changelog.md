@@ -19,5 +19,9 @@
 ## v1.3 - Documentación final
 - Creación de README.md
 - Creación de CHANGELOG.md
-- Creación de IA_USO.md
 - Organización final del proyecto para entrega
+
+## v1.3 - Documentacion faltante
+- Creación de Diagrama.png
+- Creación de IA_USO.md
+
