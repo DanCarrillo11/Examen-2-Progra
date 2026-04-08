@@ -1,7 +1,9 @@
 package logicaNegocio;
 
 import accesoDatos.AccesoDAO;
+import accesoDatos.UsuarioDAO;
 import entidades.Acceso;
+import entidades.Usuario;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -11,9 +13,25 @@ import java.util.List;
 public class AccesoService {
 
     private AccesoDAO dao = new AccesoDAO();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+    // 🔥 VALIDAR QUE EL USUARIO EXISTE
+    private boolean usuarioExiste(String idUsuario) throws Exception {
+        for (Usuario u : usuarioDAO.obtenerUsuarios()) {
+            if (u.getId().equals(idUsuario)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // 🔹 REGISTRAR ENTRADA
     public void registrarEntrada(String idUsuario) throws Exception {
+
+        if (!usuarioExiste(idUsuario)) {
+            throw new Exception("El usuario no existe");
+        }
+
         List<Acceso> accesos = dao.obtenerAccesos();
 
         for (Acceso a : accesos) {
@@ -28,6 +46,11 @@ public class AccesoService {
 
     // 🔹 REGISTRAR SALIDA
     public void registrarSalida(String idUsuario) throws Exception {
+
+        if (!usuarioExiste(idUsuario)) {
+            throw new Exception("El usuario no existe");
+        }
+
         List<Acceso> accesos = dao.obtenerAccesos();
         boolean encontrado = false;
 
@@ -45,7 +68,7 @@ public class AccesoService {
         dao.sobrescribir(accesos);
     }
 
-    // 🔹 HISTORIAL DE ACCESOS
+    // 🔹 HISTORIAL
     public List<Acceso> obtenerHistorial(String idUsuario) throws Exception {
         List<Acceso> accesos = dao.obtenerAccesos();
         List<Acceso> historial = new ArrayList<>();
@@ -63,7 +86,7 @@ public class AccesoService {
         return historial;
     }
 
-    // 🔹 TIEMPO TOTAL EN LABORATORIO (EN MINUTOS)
+    // 🔹 TIEMPO TOTAL
     public long calcularTiempoTotal(String idUsuario) throws Exception {
         List<Acceso> accesos = dao.obtenerAccesos();
         long totalMinutos = 0;

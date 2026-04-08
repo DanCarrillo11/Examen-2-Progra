@@ -93,6 +93,7 @@ public class Main {
 
                     case 8:
                         System.out.println("Saliendo...");
+                        sc.close(); // 🔥 SOLUCIÓN AL WARNING
                         return;
                 }
 

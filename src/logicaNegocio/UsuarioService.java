@@ -2,17 +2,36 @@ package logicaNegocio;
 
 import accesoDatos.UsuarioDAO;
 import entidades.Usuario;
-import java.util.*;
+
+import java.util.List;
 
 public class UsuarioService {
+
     private UsuarioDAO dao = new UsuarioDAO();
 
     public boolean registrarUsuario(String id, String nombre, String rol) throws Exception {
-        if (id.isEmpty() || nombre.isEmpty() || rol.isEmpty()) {
-            throw new Exception("Datos incompletos");
+
+        // 🔥 VALIDAR DATOS VACÍOS
+        if (id == null || id.trim().isEmpty()) {
+            throw new Exception("ID vacío");
         }
 
-        for (Usuario u : dao.obtenerUsuarios()) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new Exception("Nombre vacío");
+        }
+
+        if (rol == null || rol.trim().isEmpty()) {
+            throw new Exception("Rol vacío");
+        }
+
+        // 🔥 VALIDAR ROL
+        if (!rol.equalsIgnoreCase("Estudiante") && !rol.equalsIgnoreCase("Docente")) {
+            throw new Exception("Rol inválido");
+        }
+
+        // 🔥 VALIDAR ID DUPLICADO
+        List<Usuario> usuarios = dao.obtenerUsuarios();
+        for (Usuario u : usuarios) {
             if (u.getId().equals(id)) {
                 throw new Exception("ID duplicado");
             }
