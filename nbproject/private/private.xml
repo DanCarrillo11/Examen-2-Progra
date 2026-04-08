@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/entidades/Usuario.java</file>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/entidades/Acceso.java</file>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/accesoDatos/UsuarioDAO.java</file>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/accesoDatos/AccesoDAO.java</file>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/logicaNegocio/UsuarioService.java</file>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/logicaNegocio/AccesoService.java</file>
-            <file>file:/C:/Users/veget/OneDrive/Documentos/NetBeansProjects/ExamenIIDanielCarrillo/src/presentacion/Main.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
